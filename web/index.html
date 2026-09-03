@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QUAKE — powered by Cursor/X.ai</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1>QUAKE</h1>
+      <p class="sub">powered by Cursor/X.ai</p>
+    </header>
+
+    <div id="splash" class="panel">
+      <p>
+        The original Quake engine, compiled to WebAssembly with WebGL. It ships
+        id's official Quake 1.06 shareware archive and extracts episode 1 —
+        <em>Dimension of the Doomed</em> — in your browser. Own a copy of
+        <code>pak0.pak</code>? Load it instead; it never leaves your machine.
+      </p>
+      <fieldset>
+        <legend>Game data</legend>
+        <p class="hint pick">Quake shareware, episode 1 (quake106.zip)</p>
+        <label class="drop">
+          Or choose your own <code>pak0.pak</code>
+          <input id="pak-file" type="file" accept=".pak,.PAK" />
+        </label>
+        <p id="pak-name" class="hint" hidden></p>
+      </fieldset>
+      <fieldset>
+        <legend>Audio</legend>
+        <label>
+          <input id="volume" type="range" min="0" max="100" step="5" value="25" />
+          <span id="volume-label" class="hint">Volume 25%</span>
+        </label>
+      </fieldset>
+      <button id="start" type="button">Start</button>
+      <div id="progress" class="progress" hidden>
+        <div class="track"><div id="fill" class="fill"></div></div>
+      </div>
+      <p id="status" class="hint"></p>
+    </div>
+
+    <div id="game" hidden>
+      <div class="stage">
+        <canvas id="canvas" width="640" height="480" tabindex="0"></canvas>
+      </div>
+      <dl class="controls">
+        <div><dt>Move</dt><dd>WASD / arrows</dd></div>
+        <div><dt>Look</dt><dd>Mouse</dd></div>
+        <div><dt>Fire</dt><dd>Left click</dd></div>
+        <div><dt>Jump</dt><dd>Space</dd></div>
+        <div><dt>Weapons</dt><dd>1–9 / wheel</dd></div>
+        <div><dt>Menu</dt><dd>Esc</dd></div>
+      </dl>
+      <p class="hint pad">
+        Gamepad: left stick moves, right stick looks, RT fires, A jumps, LB/RB
+        switch weapons, Start opens the menu. Connect the pad before you press
+        Start. Click the canvas to lock the mouse.
+      </p>
+      <p class="hint pad">
+        Soundtrack: CD audio is not included in this build (v1 plays sound
+        effects only).
+      </p>
+    </div>
+
+    <footer>
+      Engine: GPL-2.0 (id Software / Qwasm). See
+      <a href="COPYING">COPYING</a>. Quake shareware archive &copy; id Software.
+      LHA extraction via <a href="https://github.com/kyz/lha.js">lha.js</a>.
+      GL4ES MIT.
+    </footer>
+    <script src="vendor/lha.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

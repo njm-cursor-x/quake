@@ -1,0 +1,6 @@
+[submodule "third_party/quake"]
+	path = third_party/quake
+	url = https://github.com/GMH-Code/Qwasm.git
+[submodule "third_party/gl4es"]
+	path = third_party/gl4es
+	url = https://github.com/ptitSeb/gl4es.git

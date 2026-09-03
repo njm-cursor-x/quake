@@ -1,0 +1,11 @@
+dist/
+data/
+build/
+.DS_Store
+*.zip
+*.pak
+*.PAK
+*.o
+*.a
+third_party/gl4es/lib/
+third_party/gl4es/build/
